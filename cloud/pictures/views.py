@@ -37,12 +37,12 @@ class ShowNGOChild(APIView):
         # return HttpResponseRedirect(os.getcwd() + '/html/ngo-child.html',{
         #     "map": mapTuple
         # })
-        return Response({
-            "text": mapTuple
-        }, status=status.HTTP_200_OK)
+        # return Response({
+        #     "text": mapTuple
+        # }, status=status.HTTP_200_OK)
 
-        # return render(request, os.getcwd() + '/html/ngo-child.html', {
-        #     "map": mapTuple
-        # })
+        return render(request, 'pictures/ngo-child.html', {
+            "map": mapTuple
+        })
 
 

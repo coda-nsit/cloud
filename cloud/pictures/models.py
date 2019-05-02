@@ -3,25 +3,32 @@ from django.contrib.auth.models import User
 
 
 class MyUser(User):
-    Location = models.CharField(max_length=255, default="")
-    UserType = models.CharField(max_length=255, default="")
+    location = models.CharField(max_length=255, default="")
+    userType = models.CharField(max_length=255, default="")
 
 
-class CHILD():
-    ID = models.CharField(max_length=255, default="")
-    Name = models.CharField(max_length=255, default="")
-    Location = models.CharField(max_length=255, default="")
-    Address = models.CharField(max_length=255, default="")
-    ngo = models.CharField(max_length=255, default="")
-    photo = models.CharField(max_length=255, default="")
+# rishab created
+class NGO(models.Model):
+    pass
+
+class Volunteer(models.Model):
+    name = models.CharField(max_length=255, default="volunteer")
+
+class Child(models.Model):
+    name     = models.CharField(max_length=255, default="child")
+    location = models.CharField(max_length=255, default="")
+    address  = models.CharField(max_length=255, default="")
+    photo    = models.CharField(max_length=255, default="")
 
 
-class CHILDCOLUNTEER():
-    UserID = models.CharField(max_length=255, default="")
-    ChildID = models.CharField(max_length=255, default="")
-    Comments = models.CharField(max_length=255, default="")
+class NGOVolunteerMap(models.Model):
+    ngo         = models.ForeignKey(NGO, on_delete=models.PROTECT)
+    volunteer   = models.ForeignKey(Volunteer, on_delete=models.PROTECT)
+
+class ChildNGOMap(models.Model):
+    child = models.ForeignKey(Child, on_delete=models.PROTECT)
+    ngo   = models.ForeignKey(NGO, on_delete=models.PROTECT)
 
 
-class NGOVOLUNTEER():
-    ngoID = models.CharField(max_length=255, default="")
-    VolunteerID = models.CharField(max_length=255, default="")
+
+

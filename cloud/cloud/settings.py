@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'storages',
     'pictures'
 
@@ -148,8 +149,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
+STATIC_URL = os.getcwd() + '/html/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+# BASE_DIR = /Users/rishabbanerjee/Documents/manav/cloud
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
+
+AWS_ACCESS_KEY_ID       = 'AKIAV4CH4DK7AYKFZFGW'
+AWS_SECRET_ACCESS_KEY   = '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'
+AWS_STORAGE_BUCKET_NAME = 'cse546ccproject2'
 

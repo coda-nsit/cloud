@@ -1,0 +1,62 @@
+<html>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+<body>
+    <div id="div1"></div>
+<script>
+var obj=[
+        {
+            id : "001",
+            name : "apple",
+            category : "fruit",
+            color : "red"
+        },
+        {
+            id : "002",
+            name : "melon",
+            category : "fruit",
+            color : "green"
+        },
+        {
+            id : "003",
+            name : "banana",
+            category : "fruit",
+            color : "yellow"
+        }
+    ]
+
+
+
+
+
+    function myFunction(){
+
+        // add hit to end point to associate child
+        $("tr td .cancel").live("click", function(){
+            $(this).parent("tr:first").remove()
+        })
+
+        
+
+    }
+
+
+
+
+    var tbl=$("<table/>").attr("id","mytable");
+    $("#div1").append(tbl);
+    for(var i=0;i<obj.length;i++)
+    {
+        console.log("$$$$");
+        var tr="<tr>";
+        var td1="<td>"+obj[i]["id"]+"</td>";
+        var td2="<td>"+obj[i]["name"]+"</td>";
+        var td3="<td>"+obj[i]["color"]+"</td>";
+        var td4='<td><button type="button" onclick="myFunction()">Associate</button></td></tr>';
+
+       $("#mytable").append(tr+td1+td2+td3+td4); 
+
+    }
+
+</script>
+</body>
+</html>

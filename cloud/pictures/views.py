@@ -31,9 +31,6 @@ class ShowNGOChild(APIView):
         mapTuple = []
         for x in maps:
             mapTuple.append([x.child.name, x.ngo.id])
-
-        print("*****")
-        print(os.getcwd() + '/html/ngo-child.html')
         # return HttpResponseRedirect(os.getcwd() + '/html/ngo-child.html',{
         #     "map": mapTuple
         # })
